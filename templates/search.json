@@ -1,0 +1,27 @@
+{
+  "sections": {
+    "main": {
+      "type": "static-search",
+      "disabled": true,
+      "blocks": {
+        "filter-1": {
+          "type": "filter",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "filter-1"
+      ],
+      "settings": {}
+    },
+    "1ea7bf88-1d90-4cb2-bd84-038641bf1c03": {
+      "type": "apps",
+      "settings": {}
+    }
+  },
+  "order": [
+    "1ea7bf88-1d90-4cb2-bd84-038641bf1c03",
+    "main"
+  ],
+  "wrapper": ".boost-sd__product-filter-fallback"
+}
