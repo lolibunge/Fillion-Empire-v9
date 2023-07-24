@@ -75,6 +75,7 @@
     {{ content_for_header }}
 
     {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {% comment %}{{ 'custom.css' | asset_url | stylesheet_tag }}{% endcomment %}
 
     {% comment %}Inject theme-object begin{% endcomment %}
     <script>
