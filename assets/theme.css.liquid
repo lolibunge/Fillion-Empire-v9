@@ -22397,7 +22397,7 @@ body:not(.user-is-tabbing) .surface-pick-up-embed__modal-btn:focus {
     overflow: hidden;
   }
   .promo-block--content.animating-in, .promo-block--content.promo-block--expanded:not(.animating-out) {
-    height: 270px;
+    height: fit-content;
   }
   .promo-block--content.promo-block--expanded, .promo-block--content.promo-block--expanded:not(.animating-out) {
     padding-right: 1.25em;
@@ -24339,6 +24339,36 @@ body:not(.user-is-tabbing) .rte .tabs .grouped-content-trigger {
   .slideshow-slide__image-wrapper{
     height: 160px!important;
   }
+
+  /* Feature Collection */
+  .featured-collection__content[data-layout=slideshow] .productgrid--item {
+    width: 100%;
+  }
+  .productitem--image img {
+    width: 100%;
+  }
+  /* ****************** */
+
+  /* Image With Text */
+  .image-with-text__container:before {
+    display: none;
+  }
+
+  .image-with-text__image-wrapper {
+      position: unset;
+  }
+
+  .image-with-text__content {
+      position: unset;
+      height: 100%!important;
+      transform: unset;
+  }
+
+  .image-with-text__container {
+      row-gap: 40px;
+  }
+  /* *************** */
+
   /* --------- */
   
 }
