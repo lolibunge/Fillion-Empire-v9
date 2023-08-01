@@ -5,6 +5,11 @@
 
 <style>
   {% for block in blocks %}
+  article.tile-block {
+    {% if block.settings.background != blank %}
+    background: {{ block.settings.background }};
+    {% endif %}
+}
     .promo-block--{{ section.id}}--{{ block.id }} {
       {% if block.settings.color != blank %}
         color: {{ block.settings.color }};

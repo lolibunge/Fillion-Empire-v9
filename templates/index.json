@@ -3,52 +3,20 @@
     "dynamic_slideshow": {
       "type": "dynamic-slideshow",
       "blocks": {
-        "slide-1": {
-          "type": "slide",
-          "settings": {
-            "title": "Slide",
-            "color": "#ffffff",
-            "text_alignment": "center",
-            "button_one_style": "primary",
-            "button_two_style": "secondary",
-            "show_overlay": true,
-            "overlay_color": "#000000",
-            "overlay_opacity": 13
-          }
-        },
-        "slide-2": {
-          "type": "slide",
-          "settings": {
-            "title": "Slide",
-            "color": "#1d1d1d",
-            "text_alignment": "left",
-            "button_one_style": "primary",
-            "button_two_style": "primary",
-            "show_overlay": true,
-            "overlay_color": "#000000",
-            "overlay_opacity": 4
-          }
-        },
-        "slide-3": {
-          "type": "slide",
-          "settings": {
-            "title": "Slide",
-            "color": "#ffffff",
-            "text_alignment": "center",
-            "button_one_style": "primary",
-            "button_two_style": "secondary",
-            "show_overlay": true,
-            "overlay_color": "#000000",
-            "overlay_opacity": 20
-          }
-        },
         "slide-4": {
           "type": "slide",
           "settings": {
-            "title": "Slide",
+            "background_image": "shopify:\/\/shop_images\/Ete_2023_2048x2048_3003b9ec-b5f7-4588-a3c4-1edf5ef9eba8.gif",
+            "title": "",
+            "text": "",
             "color": "#1d1d1d",
+            "link": "",
             "text_alignment": "left",
+            "button_one_label": "",
+            "button_one_link": "",
             "button_one_style": "primary",
+            "button_two_label": "",
+            "button_two_link": "",
             "button_two_style": "secondary",
             "show_overlay": true,
             "overlay_color": "#000000",
@@ -57,9 +25,6 @@
         }
       },
       "block_order": [
-        "slide-1",
-        "slide-2",
-        "slide-3",
         "slide-4"
       ],
       "settings": {
@@ -71,202 +36,63 @@
         "slideshow_text_below_image": false
       }
     },
-    "dynamic_highlights_banner": {
-      "type": "dynamic-highlights-banner",
-      "blocks": {
-        "highlight-1": {
-          "type": "highlight",
-          "settings": {
-            "icon": "icon-delivery",
-            "title": "Free Shipping",
-            "text": "<p>When you spend $100+<\/p>"
-          }
-        },
-        "highlight-2": {
-          "type": "highlight",
-          "settings": {
-            "icon": "icon-cell-phone",
-            "title": "Give Us A Call",
-            "text": "<p>+1 (201) 555-5555<\/p>"
-          }
-        },
-        "highlight-3": {
-          "type": "highlight",
-          "settings": {
-            "icon": "icon-chat-alternate",
-            "title": "Chat With Us",
-            "text": "<p>We offer 24-hour chat support<\/p>"
-          }
-        },
-        "highlight-4": {
-          "type": "highlight",
-          "settings": {
-            "icon": "icon-pin",
-            "title": "Locations",
-            "text": "<p>Find a store near you<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "highlight-1",
-        "highlight-2",
-        "highlight-3",
-        "highlight-4"
-      ],
-      "settings": {
-        "section_spacing": false,
-        "section_width": "content-width",
-        "icon_layout": "center",
-        "color": "#1d1d1d",
-        "icon_color": "#046e82",
-        "background_color": "#ffffff",
-        "mobile_layout": "grid"
-      }
-    },
-    "dynamic_promo_mosaic": {
-      "type": "dynamic-promo-mosaic",
-      "blocks": {
-        "promotion-1": {
-          "type": "promotion",
-          "settings": {
-            "color": "#ffffff",
-            "button_style": "primary",
-            "show_overlay": false,
-            "background": "rgba(0,0,0,0)",
-            "opacity": 50
-          }
-        },
-        "promotion-2": {
-          "type": "promotion",
-          "settings": {
-            "color": "#ffffff",
-            "button_style": "primary",
-            "show_overlay": true,
-            "background": "#000000",
-            "opacity": 5
-          }
-        },
-        "promotion-3": {
-          "type": "promotion",
-          "settings": {
-            "color": "#ffffff",
-            "button_style": "primary",
-            "show_overlay": true,
-            "background": "#000000",
-            "opacity": 3
-          }
-        },
-        "promotion-4": {
-          "type": "promotion",
-          "settings": {
-            "color": "#ffffff",
-            "button_style": "primary",
-            "show_overlay": false,
-            "background": "",
-            "opacity": 50
-          }
-        }
-      },
-      "block_order": [
-        "promotion-1",
-        "promotion-2",
-        "promotion-3",
-        "promotion-4"
-      ],
-      "settings": {
-        "title": "",
-        "section_height": "small",
-        "text_alignment": "top-left",
-        "maintain_aspect_ratio": true,
-        "compress_blocks": false
-      }
-    },
-    "dynamic_featured_collection": {
-      "type": "dynamic-featured-collection",
-      "blocks": {
-        "view-all-card": {
-          "type": "view_all_card",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "view-all-card"
-      ],
-      "settings": {
-        "title": "",
-        "layout": "slideshow",
-        "product_count": 9,
-        "cta_label": "",
-        "cta_button_style": "primary"
-      }
-    },
-    "dynamic_featured_product": {
-      "type": "dynamic-featured-product",
-      "blocks": {
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
-        "view-product-link": {
-          "type": "view-product-link",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "title",
-        "price",
-        "view-product-link"
-      ],
-      "settings": {
-        "gallery_aspect_ratio": "natural",
-        "gallery_image_crop": false,
-        "gallery_thumbnail_position": "left",
-        "gallery_video_autoplay": false,
-        "gallery_video_looping": true,
-        "gallery_hover_zoom": "replace"
-      }
-    },
-    "dynamic_promo_grid": {
+    "ec9cc445-f8ac-429e-8733-d7059f600c70": {
       "type": "dynamic-promo-grid",
       "blocks": {
-        "promotion-1": {
+        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-1": {
           "type": "promotion",
           "settings": {
-            "color": "#ffffff",
+            "image": "shopify:\/\/shop_images\/Televiseurs_Accueil.webp",
+            "title": "Televisions",
+            "text": "OLED, QLED, DEL... comment choisir le bon téléviseur?",
+            "color": "#4d4d4d",
+            "block_link": "shopify:\/\/blogs\/news",
+            "button_text": "Lisez l'article",
             "button_style": "primary",
             "show_overlay": false,
             "background": "",
             "opacity": 50
           }
         },
-        "promotion-2": {
+        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-2": {
           "type": "promotion",
           "settings": {
-            "color": "#ffffff",
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-06-22_at_1.09.03_PM.webp",
+            "title": "HAUT-PARLEURS PORTABLES",
+            "text": "Emportez votre musique n'importe où, sans en altérer la qualité sonore.",
+            "color": "#4d4d4d",
+            "block_link": "",
+            "button_text": "Découvrez ces produits",
             "button_style": "primary",
             "show_overlay": false,
             "background": "",
             "opacity": 50
           }
         },
-        "promotion-3": {
+        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-3": {
           "type": "promotion",
           "settings": {
-            "color": "#ffffff",
+            "image": "shopify:\/\/shop_images\/Low--606_S2_Anniversary_Edition_Matte_Black_Selecting_Record.webp",
+            "title": "PROMOTION SÉRIE 600 B&W",
+            "text": "Jusqu'à 440 $ de rabais sur les enceintes Bowers & Wilkins de la série 600.",
+            "color": "#4d4d4d",
+            "block_link": "",
+            "button_text": "Profitez-en",
             "button_style": "primary",
             "show_overlay": false,
             "background": "",
             "opacity": 50
           }
         },
-        "promotion-4": {
+        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-4": {
           "type": "promotion",
           "settings": {
-            "color": "#ffffff",
+            "image": "shopify:\/\/shop_images\/6545999cv12d.webp",
+            "title": "BLUESOUND NODE X Le NODE X",
+            "text": "réimagine certains des meilleurs éléments de la conception du NODE",
+            "color": "#4d4d4d",
+            "block_link": "",
+            "button_text": "Décourez ce produit",
             "button_style": "primary",
             "show_overlay": false,
             "background": "",
@@ -275,271 +101,113 @@
         }
       },
       "block_order": [
-        "promotion-1",
-        "promotion-2",
-        "promotion-3",
-        "promotion-4"
+        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-1",
+        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-2",
+        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-3",
+        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-4"
       ],
       "settings": {
-        "section_height": "medium",
+        "title": "Grid",
+        "section_height": "small",
         "section_columns": 4,
         "text_alignment": "top-left"
       }
     },
-    "dynamic_collection_list": {
-      "type": "dynamic-collection-list",
-      "blocks": {
-        "collection-1": {
-          "type": "collection",
-          "settings": {}
-        },
-        "collection-2": {
-          "type": "collection",
-          "settings": {}
-        },
-        "collection-3": {
-          "type": "collection",
-          "settings": {}
-        },
-        "collection-4": {
-          "type": "collection",
-          "settings": {}
-        },
-        "collection-5": {
-          "type": "collection",
-          "settings": {}
-        },
-        "collection-6": {
-          "type": "collection",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "collection-1",
-        "collection-2",
-        "collection-3",
-        "collection-4",
-        "collection-5",
-        "collection-6"
-      ],
+    "0bc4e486-6fbf-46fe-a107-5746224ea323": {
+      "type": "pxs-image-with-text-overlay",
       "settings": {
-        "thumbnail_columns_desktop": 6,
-        "thumbnail_columns_mobile": 3,
-        "cta_button_style": "secondary"
-      }
-    },
-    "dynamic_shoppable_image": {
-      "type": "dynamic-shoppable-image",
-      "blocks": {
-        "hotspot-1": {
-          "type": "hotspot",
-          "settings": {
-            "x_axis": 24,
-            "y_axis": 79
-          }
-        },
-        "hotspot-2": {
-          "type": "hotspot",
-          "settings": {
-            "x_axis": 64,
-            "y_axis": 67
-          }
-        },
-        "hotspot-3": {
-          "type": "hotspot",
-          "settings": {
-            "x_axis": 61,
-            "y_axis": 5
-          }
-        },
-        "hotspot-4": {
-          "type": "hotspot",
-          "settings": {
-            "x_axis": 15,
-            "y_axis": 19
-          }
-        },
-        "hotspot-5": {
-          "type": "hotspot",
-          "settings": {
-            "x_axis": 87,
-            "y_axis": 48
-          }
-        }
-      },
-      "block_order": [
-        "hotspot-1",
-        "hotspot-2",
-        "hotspot-3",
-        "hotspot-4",
-        "hotspot-5"
-      ],
-      "settings": {
-        "image_width": "two-thirds",
-        "textbox_button_style": "primary",
-        "textbox_text_alignment": "center",
-        "textbox_text_position": "left"
-      }
-    },
-    "dynamic_featured_collection-2": {
-      "type": "dynamic-featured-collection",
-      "blocks": {
-        "title-card": {
-          "type": "title_card",
-          "settings": {
-            "horizontal_size": "3",
-            "vertical_size": "2",
-            "text_alignment": "center-center",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 10
-          }
-        }
-      },
-      "block_order": [
-        "title-card"
-      ],
-      "settings": {
-        "layout": "grid",
-        "product_count": 4,
-        "cta_label": "",
-        "cta_button_style": "primary"
-      }
-    },
-    "dynamic_promo_grid-2": {
-      "type": "dynamic-promo-grid",
-      "blocks": {
-        "promotion-1": {
-          "type": "promotion",
-          "settings": {
-            "color": "#ffffff",
-            "button_style": "secondary",
-            "show_overlay": false,
-            "background": "rgba(0,0,0,0)",
-            "opacity": 50
-          }
-        },
-        "promotion-2": {
-          "type": "promotion",
-          "settings": {
-            "color": "#ffffff",
-            "button_style": "primary",
-            "show_overlay": false,
-            "background": "rgba(0,0,0,0)",
-            "opacity": 50
-          }
-        }
-      },
-      "block_order": [
-        "promotion-1",
-        "promotion-2"
-      ],
-      "settings": {
+        "section_height": "medium",
+        "image": "shopify:\/\/shop_images\/Splash_Technics_HIRES_2048x2048_8e9d91b2-3323-4a2a-abbd-cba739a7aa07.jpg",
         "title": "",
-        "section_height": "small",
-        "section_columns": 2,
-        "text_alignment": "center-left"
+        "text": "",
+        "content_position": "center-center",
+        "color": "#ffffff",
+        "overlay_background": "rgba(0,0,0,0)",
+        "overlay_opacity": 50,
+        "link": "",
+        "button_text": ""
       }
     },
-    "dynamic_promo_grid-3": {
+    "a20d7df7-693a-4098-a24c-b5e0d46e1dee": {
       "type": "dynamic-promo-grid",
       "blocks": {
-        "promotion-1": {
+        "template--19974246105383__a20d7df7-693a-4098-a24c-b5e0d46e1dee-promotion-1": {
           "type": "promotion",
           "settings": {
-            "color": "#1e1e1e",
+            "image": "shopify:\/\/shop_images\/Packshots-DevialetDione-Opera-17.webp",
+            "title": "DÉCOUVREZ DEVIALET",
+            "text": "La révolution française des systèmes audio haut de gamme.",
+            "color": "#4d4d4d",
+            "block_link": "",
+            "button_text": "Lisez l'article",
             "button_style": "primary",
             "show_overlay": false,
             "background": "",
             "opacity": 50
           }
+        },
+        "template--19974246105383__a20d7df7-693a-4098-a24c-b5e0d46e1dee-promotion-2": {
+          "type": "promotion",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Aubaines_icones_cuivre.webp",
+            "title": "NOTRE COIN DES AUBAINES",
+            "text": "Trouvez de bonnes affaires sur des produits en fin de ligne, des modèles démonstrateurs ou des boîtes ouvertes.",
+            "color": "#4d4d4d",
+            "block_link": "",
+            "button_text": "Découvrez ces aubaines",
+            "button_style": "primary",
+            "show_overlay": true,
+            "background": "#ffffff",
+            "opacity": 100
+          }
         }
       },
       "block_order": [
-        "promotion-1"
+        "template--19974246105383__a20d7df7-693a-4098-a24c-b5e0d46e1dee-promotion-1",
+        "template--19974246105383__a20d7df7-693a-4098-a24c-b5e0d46e1dee-promotion-2"
       ],
       "settings": {
-        "section_height": "medium",
-        "section_columns": 1,
-        "text_alignment": "center-left"
+        "title": "Grid",
+        "section_height": "small",
+        "section_columns": 2,
+        "text_alignment": "top-left"
       }
     },
-    "dynamic_testimonials": {
-      "type": "dynamic-testimonials",
-      "blocks": {
-        "testimonial-1": {
-          "type": "testimonial",
-          "settings": {}
-        },
-        "testimonial-2": {
-          "type": "testimonial",
-          "settings": {}
-        },
-        "testimonial-3": {
-          "type": "testimonial",
-          "settings": {}
-        },
-        "testimonial-4": {
-          "type": "testimonial",
-          "settings": {}
-        },
-        "testimonial-5": {
-          "type": "testimonial",
-          "settings": {}
-        },
-        "testimonial-6": {
-          "type": "testimonial",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "testimonial-1",
-        "testimonial-2",
-        "testimonial-3",
-        "testimonial-4",
-        "testimonial-5",
-        "testimonial-6"
-      ],
+    "f78d04a1-084f-4aaf-820e-0b7f4879752a": {
+      "type": "dynamic-featured-collection",
       "settings": {
-        "image_crop": "circle",
-        "text_size": "large"
+        "title": "Featured collection",
+        "layout": "grid",
+        "collection": "accessoires-audio-video-1",
+        "product_count": 25,
+        "cta_label": "",
+        "cta_button_style": "primary"
       }
     },
-    "dynamic_blog_posts": {
-      "type": "dynamic-blog-posts",
+    "45857b0c-ed26-4c23-a347-54c88521b148": {
+      "type": "dynamic-image-with-text",
+      "custom_css": [],
       "settings": {
-        "show_date": true,
-        "show_author": false,
-        "show_excerpt": true
-      }
-    },
-    "dynamic_search": {
-      "type": "dynamic-search",
-      "settings": {
-        "filter_search_by": "disabled",
-        "enable_live_search": true,
-        "enable_live_search_images": false,
-        "show-overlay": false,
-        "color": "#ffffff",
-        "background": "#000000",
-        "opacity": 50
+        "section_heading": "",
+        "image": "shopify:\/\/shop_images\/NOS_SOLUTIONS.jpg",
+        "desktop_height": "natural",
+        "mobile_height": "natural",
+        "desktop_image_alignment": "left",
+        "mobile_image_alignment": "top",
+        "heading": "À L’ÉCOUTE DE VOS BESOINS",
+        "subheading": "<p>L’équipe Fillion est à votre écoute. Nous sommes là pour vous aider à donner vie à vos idées et concrétiser vos projets, des plus petits aux plus grands. Nous sommes de tous les défis. Laissez-nous le soin de vous assister!<\/p>",
+        "text_alignment": "left",
+        "button_label": "Button",
+        "button_link": ""
       }
     }
   },
   "order": [
     "dynamic_slideshow",
-    "dynamic_highlights_banner",
-    "dynamic_promo_mosaic",
-    "dynamic_featured_collection",
-    "dynamic_featured_product",
-    "dynamic_promo_grid",
-    "dynamic_collection_list",
-    "dynamic_shoppable_image",
-    "dynamic_featured_collection-2",
-    "dynamic_promo_grid-2",
-    "dynamic_promo_grid-3",
-    "dynamic_testimonials",
-    "dynamic_blog_posts",
-    "dynamic_search"
+    "ec9cc445-f8ac-429e-8733-d7059f600c70",
+    "0bc4e486-6fbf-46fe-a107-5746224ea323",
+    "a20d7df7-693a-4098-a24c-b5e0d46e1dee",
+    "f78d04a1-084f-4aaf-820e-0b7f4879752a",
+    "45857b0c-ed26-4c23-a347-54c88521b148"
   ]
 }
