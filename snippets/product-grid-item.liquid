@@ -398,20 +398,7 @@
       {%- endcapture -%}
 
       <div class="productitem--info">
-        {% unless countdown_timer %}
-          {{ product_item_swatches }}
-        {% endunless %}
-
-        {% if emphasize_price %}
-          {{ product_item_price }}
-        {% endif %}
-
-        <h2 class="productitem--title">
-          <a href="{{ product_link }}" data-product-page-link>
-            {{ product_title }}
-          </a>
-        </h2>
-
+       
         {% unless product_compare %}
           {% if settings.product_show_vendor and product.vendor != blank %}
             <span class="productitem--vendor">
@@ -420,9 +407,37 @@
           {% endif %}
         {% endunless %}
 
+        <h2 class="productitem--title">
+          <a href="{{ product_link }}" data-product-page-link>
+            {{ product_title }}
+          </a>
+        </h2>
+        
+        {% if product.metafields.global.excerpt-card != blank %}
+      		<p class="productSubDesc">{{ product.metafields.global.excerpt-card.value }}</p>
+      	{% endif %}
+
+        {% unless countdown_timer %}
+        {{ product_item_swatches }}
+      {% endunless %}
+
+      {% if emphasize_price %}
+        {{ product_item_price }}
+      {% endif %}
+
         {% unless emphasize_price %}
           {{ product_item_price }}
         {% endunless %}
+
+        {% if product.metafields.fillion.conditioncode_ != blank %}
+            <span class="product-title-option2">
+                {{ product.metafields.fillion.conditioncode_.value }}
+            </span>
+        {% else %}
+        <span class="product-title-option2">
+            {{ product.selected_or_first_available_variant.metafields.fillion.conditioncode_.value }}
+            </span>
+        {% endif %}
 
         {% unless product_compare %}
           {% if settings.inventory_status %}

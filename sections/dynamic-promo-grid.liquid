@@ -35,7 +35,6 @@
       </div>
     {% endif %}
   </div>
-
   {%
     render 'promo-block-background',
     blocks: section.blocks
@@ -44,8 +43,8 @@
 
 {% schema %}
 {
-  "name": "t:sections.grid.name",
-  "class": "promo-grid--section",
+  "name": "Grid Tiles",
+  "class": "tiles-grid--section",
   "max_blocks": 20,
   "settings": [
     {
@@ -188,34 +187,19 @@
         },
         {
           "type": "header",
-          "content": "t:sections.grid.blocks.promotional_item.header_1.content"
-        },
-        {
-          "id": "show_overlay",
-          "type": "checkbox",
-          "label": "t:sections.grid.blocks.promotional_item.show_overlay.label"
+          "content": "Layout"
         },
         {
           "id": "background",
           "type": "color",
-          "label": "t:sections.grid.blocks.promotional_item.background.label"
-        },
-        {
-          "id": "opacity",
-          "type": "range",
-          "label": "t:sections.grid.blocks.promotional_item.opacity.label",
-          "min": 1,
-          "max": 100,
-          "step": 1,
-          "unit": "%",
-          "default": 50
+          "label": "Tile text background color"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.grid.presets.grid.name",
+      "name": "Grid Tiles",
       "category": "t:sections.grid.presets.grid.category",
       "blocks": [
         {
