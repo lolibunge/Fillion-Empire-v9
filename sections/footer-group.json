@@ -5,35 +5,43 @@
     "footer": {
       "type": "static-footer",
       "blocks": {
-        "social_accounts": {
-          "type": "social_accounts",
-          "settings": {}
-        },
-        "menu": {
-          "type": "menu",
-          "settings": {}
-        },
         "menu_2": {
           "type": "menu",
-          "settings": {}
+          "settings": {
+            "menu": "footer"
+          }
         },
         "menu_3": {
           "type": "menu",
-          "settings": {}
+          "settings": {
+            "menu": "footer-menu-2"
+          }
         },
         "newsletter": {
           "type": "newsletter",
+          "settings": {
+            "title": "ABONNEZ-VOUS À NOTRE INFOLETTRE",
+            "text": "<p>C’est le meilleur moyen d’être informé en premier de nos offres spéciales, nos lancements et nos soirées VIP.<\/p>"
+          }
+        },
+        "social_accounts": {
+          "type": "social_accounts",
           "settings": {}
         }
       },
       "block_order": [
-        "social_accounts",
-        "menu",
         "menu_2",
         "menu_3",
-        "newsletter"
+        "newsletter",
+        "social_accounts"
       ],
-      "settings": {}
+      "settings": {
+        "show_follow_on_shop": true,
+        "payment_icons": true,
+        "show_locale_selector": true,
+        "show_currency_selector": true,
+        "additional_menu": "legal-menu"
+      }
     }
   },
   "order": [

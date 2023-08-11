@@ -1,4 +1,21 @@
 <ul class="site-header-actions" data-header-actions>
+  <li class="site-header__language-selector">
+    <select id="language-selector">
+    <option value="en">EN</option>
+    <option value="fr">FR</option>
+    <!-- Add more language options as needed -->
+  </select>
+  
+  </li>
+  
+  {% for link in linklists.header-menu.links %}
+  <li>
+    <a href="{{ link.url }}">
+      {{ link.title }}
+    </a>
+  </li>
+{% endfor %}
+  
   {% if shop.customer_accounts_enabled %}
     {% unless customer %}
       <li class="site-header-actions__account-link">
@@ -43,3 +60,43 @@
     {% endunless %}
   {% endif %}
 </ul>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var languageSelector = document.getElementById('language-selector');
+    var storedLanguage = localStorage.getItem('selectedLanguage');
+    
+    // Set the stored language as the default value if available
+    if (storedLanguage) {
+      languageSelector.value = storedLanguage;
+    }
+    
+    languageSelector.addEventListener('change', function() {
+      var selectedLanguage = languageSelector.value;
+      var currentPath = window.location.pathname;
+      
+      // Remove any existing language code from the path
+      var pathSegments = currentPath.split('/');
+      var newPathSegments = pathSegments.filter(function(segment) {
+        return segment !== storedLanguage;
+      });
+      
+      // Construct the new URL based on the selected language
+      var newUrl;
+      if (selectedLanguage === 'en') {
+        newUrl = newPathSegments.join('/');
+      } else {
+        newUrl = '/' + selectedLanguage + newPathSegments.join('/');
+      }
+      
+      // Store the selected language in local storage
+      localStorage.setItem('selectedLanguage', selectedLanguage);
+      
+      window.location.href = newUrl;
+    });
+  });
+</script>
+
+
+
+

@@ -5,6 +5,7 @@
       "blocks": {
         "slide-4": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "background_image": "shopify:\/\/shop_images\/Ete_2023_2048x2048_3003b9ec-b5f7-4588-a3c4-1edf5ef9eba8.gif",
             "title": "",
@@ -22,92 +23,126 @@
             "overlay_color": "#000000",
             "overlay_opacity": 5
           }
+        },
+        "58709ef5-361c-4167-a85b-4cad58ffee31": {
+          "type": "slide",
+          "settings": {
+            "background_image": "shopify:\/\/shop_images\/banniere1boutique_v4_2048x2048_2139f5bb-ec97-4dff-b28f-bde087d4fcf5.webp",
+            "mobile_background_image": "shopify:\/\/shop_images\/NP-S303LS.jpg",
+            "title": "Heding Slide Title",
+            "text": "Introduce customers to your shop with lifestyle and product imagery",
+            "color": "#ffffff",
+            "link": "",
+            "text_alignment": "center",
+            "button_one_label": "Button",
+            "button_one_link": "",
+            "button_one_style": "primary",
+            "button_two_label": "",
+            "button_two_link": "",
+            "button_two_style": "primary",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 45
+          }
+        },
+        "125af229-ff1a-440a-84ae-a91091f02772": {
+          "type": "slide",
+          "settings": {
+            "title": "Slide",
+            "text": "Introduce customers to your shop with lifestyle and product imagery",
+            "color": "#ffffff",
+            "link": "",
+            "text_alignment": "center",
+            "button_one_label": "Button",
+            "button_one_link": "",
+            "button_one_style": "primary",
+            "button_two_label": "",
+            "button_two_link": "",
+            "button_two_style": "primary",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 50
+          }
         }
       },
       "block_order": [
-        "slide-4"
+        "slide-4",
+        "58709ef5-361c-4167-a85b-4cad58ffee31",
+        "125af229-ff1a-440a-84ae-a91091f02772"
       ],
       "settings": {
         "enable_autoplay": true,
         "autoplay_duration": 9,
         "slideshow_width": "full",
-        "slideshow_height": "medium",
-        "slideshow_height_mobile": "x-large",
+        "slideshow_height": "large",
+        "slideshow_height_mobile": "small",
         "slideshow_text_below_image": false
       }
     },
-    "ec9cc445-f8ac-429e-8733-d7059f600c70": {
+    "c67bbb30-eea8-4104-b588-e69c8c6027ad": {
       "type": "dynamic-promo-grid",
       "blocks": {
-        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-1": {
+        "template--20023245013287__c67bbb30-eea8-4104-b588-e69c8c6027ad-promotion-1": {
           "type": "promotion",
           "settings": {
             "image": "shopify:\/\/shop_images\/Televiseurs_Accueil.webp",
             "title": "Televisions",
             "text": "OLED, QLED, DEL... comment choisir le bon téléviseur?",
             "color": "#4d4d4d",
-            "block_link": "shopify:\/\/blogs\/news",
+            "block_link": "shopify:\/\/blogs\/news\/comment-choisir-bon-televiseur-ecran-plat",
             "button_text": "Lisez l'article",
             "button_style": "primary",
-            "show_overlay": false,
-            "background": "",
-            "opacity": 50
+            "background": ""
           }
         },
-        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-2": {
+        "template--20023245013287__c67bbb30-eea8-4104-b588-e69c8c6027ad-promotion-2": {
           "type": "promotion",
           "settings": {
             "image": "shopify:\/\/shop_images\/Screenshot_2023-06-22_at_1.09.03_PM.webp",
             "title": "HAUT-PARLEURS PORTABLES",
             "text": "Emportez votre musique n'importe où, sans en altérer la qualité sonore.",
             "color": "#4d4d4d",
-            "block_link": "",
+            "block_link": "shopify:\/\/collections\/haut-parleurs-sans-fil-portables",
             "button_text": "Découvrez ces produits",
             "button_style": "primary",
-            "show_overlay": false,
-            "background": "",
-            "opacity": 50
+            "background": ""
           }
         },
-        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-3": {
+        "template--20023245013287__c67bbb30-eea8-4104-b588-e69c8c6027ad-promotion-3": {
           "type": "promotion",
           "settings": {
             "image": "shopify:\/\/shop_images\/Low--606_S2_Anniversary_Edition_Matte_Black_Selecting_Record.webp",
             "title": "PROMOTION SÉRIE 600 B&W",
             "text": "Jusqu'à 440 $ de rabais sur les enceintes Bowers & Wilkins de la série 600.",
             "color": "#4d4d4d",
-            "block_link": "",
+            "block_link": "shopify:\/\/collections\/bowers-and-wilkins-serie-600",
             "button_text": "Profitez-en",
             "button_style": "primary",
-            "show_overlay": false,
-            "background": "",
-            "opacity": 50
+            "background": ""
           }
         },
-        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-4": {
+        "template--20023245013287__c67bbb30-eea8-4104-b588-e69c8c6027ad-promotion-4": {
           "type": "promotion",
           "settings": {
             "image": "shopify:\/\/shop_images\/6545999cv12d.webp",
             "title": "BLUESOUND NODE X Le NODE X",
             "text": "réimagine certains des meilleurs éléments de la conception du NODE",
             "color": "#4d4d4d",
-            "block_link": "",
+            "block_link": "shopify:\/\/products\/bluesound-node-x-lecteurs-reseau",
             "button_text": "Décourez ce produit",
             "button_style": "primary",
-            "show_overlay": false,
-            "background": "",
-            "opacity": 50
+            "background": ""
           }
         }
       },
       "block_order": [
-        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-1",
-        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-2",
-        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-3",
-        "template--19974246105383__ec9cc445-f8ac-429e-8733-d7059f600c70-promotion-4"
+        "template--20023245013287__c67bbb30-eea8-4104-b588-e69c8c6027ad-promotion-1",
+        "template--20023245013287__c67bbb30-eea8-4104-b588-e69c8c6027ad-promotion-2",
+        "template--20023245013287__c67bbb30-eea8-4104-b588-e69c8c6027ad-promotion-3",
+        "template--20023245013287__c67bbb30-eea8-4104-b588-e69c8c6027ad-promotion-4"
       ],
       "settings": {
-        "title": "Grid",
+        "title": "",
         "section_height": "small",
         "section_columns": 4,
         "text_alignment": "top-left"
@@ -128,57 +163,89 @@
         "button_text": ""
       }
     },
-    "a20d7df7-693a-4098-a24c-b5e0d46e1dee": {
+    "0fba1471-7f24-449e-b8c4-2d066a8a7db6": {
+      "type": "dynamic-slideshow",
+      "blocks": {
+        "template--20023245013287__0fba1471-7f24-449e-b8c4-2d066a8a7db6-slide-1": {
+          "type": "slide",
+          "settings": {
+            "background_image": "shopify:\/\/shop_images\/NP-S303LS.jpg",
+            "title": "Slide 1",
+            "text": "Introduce customers to your shop with lifestyle and product imagery",
+            "color": "#FFFFFF",
+            "link": "",
+            "text_alignment": "center",
+            "button_one_label": "Button 1",
+            "button_one_link": "",
+            "button_one_style": "primary",
+            "button_two_label": "Button 2",
+            "button_two_link": "",
+            "button_two_style": "primary",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 50
+          }
+        }
+      },
+      "block_order": [
+        "template--20023245013287__0fba1471-7f24-449e-b8c4-2d066a8a7db6-slide-1"
+      ],
+      "settings": {
+        "enable_autoplay": true,
+        "autoplay_duration": 8,
+        "slideshow_width": "full",
+        "slideshow_height": "medium",
+        "slideshow_height_mobile": "medium",
+        "slideshow_text_below_image": true
+      }
+    },
+    "f70b6806-7790-4e31-9117-f5fb97b88f60": {
       "type": "dynamic-promo-grid",
       "blocks": {
-        "template--19974246105383__a20d7df7-693a-4098-a24c-b5e0d46e1dee-promotion-1": {
+        "template--20023245013287__f70b6806-7790-4e31-9117-f5fb97b88f60-promotion-1": {
           "type": "promotion",
           "settings": {
             "image": "shopify:\/\/shop_images\/Packshots-DevialetDione-Opera-17.webp",
             "title": "DÉCOUVREZ DEVIALET",
             "text": "La révolution française des systèmes audio haut de gamme.",
             "color": "#4d4d4d",
-            "block_link": "",
+            "block_link": "shopify:\/\/blogs\/news\/decouvrez-devialet",
             "button_text": "Lisez l'article",
             "button_style": "primary",
-            "show_overlay": false,
-            "background": "",
-            "opacity": 50
+            "background": ""
           }
         },
-        "template--19974246105383__a20d7df7-693a-4098-a24c-b5e0d46e1dee-promotion-2": {
+        "template--20023245013287__f70b6806-7790-4e31-9117-f5fb97b88f60-promotion-2": {
           "type": "promotion",
           "settings": {
             "image": "shopify:\/\/shop_images\/Aubaines_icones_cuivre.webp",
             "title": "NOTRE COIN DES AUBAINES",
             "text": "Trouvez de bonnes affaires sur des produits en fin de ligne, des modèles démonstrateurs ou des boîtes ouvertes.",
             "color": "#4d4d4d",
-            "block_link": "",
+            "block_link": "shopify:\/\/collections\/coin-des-aubaines",
             "button_text": "Découvrez ces aubaines",
             "button_style": "primary",
-            "show_overlay": true,
-            "background": "#ffffff",
-            "opacity": 100
+            "background": ""
           }
         }
       },
       "block_order": [
-        "template--19974246105383__a20d7df7-693a-4098-a24c-b5e0d46e1dee-promotion-1",
-        "template--19974246105383__a20d7df7-693a-4098-a24c-b5e0d46e1dee-promotion-2"
+        "template--20023245013287__f70b6806-7790-4e31-9117-f5fb97b88f60-promotion-1",
+        "template--20023245013287__f70b6806-7790-4e31-9117-f5fb97b88f60-promotion-2"
       ],
       "settings": {
-        "title": "Grid",
+        "title": "",
         "section_height": "small",
         "section_columns": 2,
         "text_alignment": "top-left"
       }
     },
-    "f78d04a1-084f-4aaf-820e-0b7f4879752a": {
+    "3dc164ef-d55b-4ced-8d03-fc7839b88ad2": {
       "type": "dynamic-featured-collection",
       "settings": {
-        "title": "Featured collection",
-        "layout": "grid",
-        "collection": "accessoires-audio-video-1",
+        "title": "",
+        "layout": "slideshow",
+        "collection": "il-est-encore-temps-den-profiter",
         "product_count": 25,
         "cta_label": "",
         "cta_button_style": "primary"
@@ -200,14 +267,47 @@
         "button_label": "Button",
         "button_link": ""
       }
+    },
+    "680aff86-80a3-4ff4-827f-c41613d51bd4": {
+      "type": "dynamic-featured-collection",
+      "blocks": {
+        "7afbe50f-8f85-463c-8256-d6c5ef75a7c4": {
+          "type": "title_card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/NP-S303LS.jpg",
+            "horizontal_size": "2",
+            "vertical_size": "2",
+            "text_alignment": "center-center",
+            "pre_heading": "Featured",
+            "heading": "Collection",
+            "text_color": "#FFFFFF",
+            "cta_label": "See more",
+            "overlay_color": "#000000",
+            "overlay_opacity": 50
+          }
+        }
+      },
+      "block_order": [
+        "7afbe50f-8f85-463c-8256-d6c5ef75a7c4"
+      ],
+      "settings": {
+        "title": "Our Recognized Designers",
+        "layout": "grid",
+        "collection": "haut-parleurs-sinstallation",
+        "product_count": 6,
+        "cta_label": "Shop collection",
+        "cta_button_style": "primary"
+      }
     }
   },
   "order": [
     "dynamic_slideshow",
-    "ec9cc445-f8ac-429e-8733-d7059f600c70",
+    "c67bbb30-eea8-4104-b588-e69c8c6027ad",
     "0bc4e486-6fbf-46fe-a107-5746224ea323",
-    "a20d7df7-693a-4098-a24c-b5e0d46e1dee",
-    "f78d04a1-084f-4aaf-820e-0b7f4879752a",
-    "45857b0c-ed26-4c23-a347-54c88521b148"
+    "0fba1471-7f24-449e-b8c4-2d066a8a7db6",
+    "f70b6806-7790-4e31-9117-f5fb97b88f60",
+    "3dc164ef-d55b-4ced-8d03-fc7839b88ad2",
+    "45857b0c-ed26-4c23-a347-54c88521b148",
+    "680aff86-80a3-4ff4-827f-c41613d51bd4"
   ]
 }

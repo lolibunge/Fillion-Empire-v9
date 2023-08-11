@@ -6,6 +6,7 @@
 {% endif %}
 
 {%- capture classes -%}
+  tile-block
   promo-block
   {% if block.settings.image != blank %}promo-block--image{% else %}promo-block--placeholder{% endif %}
   promo-block--{{ section.id }}--{{ block.id }}
@@ -17,16 +18,7 @@
 <{% if block.settings.title != blank and block.settings.text != blank %}article{% else %}div{% endif %}
   class="{{ classes | replace: '  ', ' ' | strip_newlines }} {% if block.settings.image == blank %}onboarding-image{% endif %}"
   {{ block.shopify_attributes }}
-  {% if block.settings.image %}
-    {%
-      render 'rimg'
-      img: block.settings.image,
-      background: true,
-      lazy: true,
-      size: '1350x1350',
-      focal_point: block.settings.image.presentation.focal_point,
-    %}
-  {% endif %}
+  
 >
   {% if block.settings.image %}
     {%
@@ -34,7 +26,7 @@
       img: block.settings.image,
       lazy: true,
       canvas: true,
-      class: 'promo-block--background',
+      class: 'tile-image-block',
       size: '1350x1350',
       focal_point: block.settings.image.presentation.focal_point,
     %}
@@ -50,7 +42,7 @@
 
   {% if has_link %}
     <a
-      class="{{ wrapper_classes | replace: '  ', ' ' | strip_newlines }}"
+      class="tile-block--content {{ wrapper_classes | replace: '  ', ' ' | strip_newlines }}"
       href="{{ block.settings.block_link }}"
       data-promo-block-content
     >
@@ -63,9 +55,9 @@
 
   <div class="promo-block--content-wrapper">
     {% if block.settings.title != blank %}
-      <h2 class="promo-block--header">
+      <h4 class="promo-block--header">
         {{ block.settings.title | escape }}
-      </h2>
+      </h4>
     {% endif %}
 
     {% if block.settings.text != blank %}
@@ -75,10 +67,13 @@
     {% endif %}
 
     {% if block.settings.button_text != blank and block.settings.block_link != blank %}
-      <span
-        class="button-{{ block.settings.button_style }} promo-block--button">
+    <div class="tile-block--button promo-block--button">
+    <span
+        class="tile-block__button">
         {{ block.settings.button_text | escape }}
       </span>
+      <span class="tile-block__icon"><svg viewBox="0 0 12 16" height="1em" role="img" aria-label="arrowRight"><path d="M6 2 4.95 3.05l4.2 4.2H0v1.5h9.15l-4.2 4.2L6 14l6-6z" fill="currentColor"></path></svg></span>
+      </div>
     {% endif %}
   </div>
 

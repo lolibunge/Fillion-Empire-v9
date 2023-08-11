@@ -34,75 +34,44 @@
     "header": {
       "type": "static-header",
       "blocks": {
-        "mega_menu": {
-          "type": "meganav_images",
-          "settings": {
-            "meganav_trigger": "Son",
-            "text_1": "",
-            "link_1": "",
-            "position_1": "last",
-            "size_1": "medium",
-            "text_2": "",
-            "link_2": "",
-            "position_2": "last",
-            "size_2": "medium"
-          }
-        },
-        "mega_menu_2": {
-          "type": "meganav_images",
-          "settings": {
-            "meganav_trigger": "Image",
-            "text_1": "",
-            "link_1": "",
-            "position_1": "last",
-            "size_1": "medium",
-            "text_2": "",
-            "link_2": "",
-            "position_2": "last",
-            "size_2": "medium"
-          }
-        },
-        "6a35c544-9d0f-4516-8bba-6a96fa421720": {
-          "type": "meganav_images",
-          "settings": {
-            "meganav_trigger": "MEUBLES ET ACCESSOIRES",
-            "text_1": "",
-            "link_1": "",
-            "position_1": "last",
-            "size_1": "medium",
-            "text_2": "",
-            "link_2": "",
-            "position_2": "last",
-            "size_2": "medium"
-          }
-        },
-        "43504ea8-8e5d-470b-a4b5-af4060b1c072": {
-          "type": "meganav_images",
-          "settings": {
-            "meganav_trigger": "",
-            "text_1": "",
-            "link_1": "",
-            "position_1": "last",
-            "size_1": "medium",
-            "text_2": "",
-            "link_2": "",
-            "position_2": "last",
-            "size_2": "medium"
-          }
-        },
-        "a3d7be52-4746-4340-adb7-0015cf1ec231": {
+        "91f111c7-f49b-47ca-b4df-b2eee3c9018c": {
           "type": "multi_column_menu",
           "settings": {
-            "menu_trigger": "Marques"
+            "menu_trigger": "SON"
+          }
+        },
+        "298d43db-1b3c-4517-8804-9a0891f8dedd": {
+          "type": "meganav_images",
+          "settings": {
+            "meganav_trigger": "marques",
+            "text_1": "",
+            "link_1": "",
+            "position_1": "last",
+            "size_1": "medium",
+            "text_2": "",
+            "link_2": "",
+            "position_2": "last",
+            "size_2": "medium"
+          }
+        },
+        "b9d89a59-fba8-4df0-8c4e-1de95ee6ab5f": {
+          "type": "multi_column_menu",
+          "settings": {
+            "menu_trigger": "image"
+          }
+        },
+        "844365fd-e1ff-419c-b249-042dec605fae": {
+          "type": "multi_column_menu",
+          "settings": {
+            "menu_trigger": "MEUBLES ET ACCESSOIRES"
           }
         }
       },
       "block_order": [
-        "mega_menu",
-        "mega_menu_2",
-        "6a35c544-9d0f-4516-8bba-6a96fa421720",
-        "43504ea8-8e5d-470b-a4b5-af4060b1c072",
-        "a3d7be52-4746-4340-adb7-0015cf1ec231"
+        "91f111c7-f49b-47ca-b4df-b2eee3c9018c",
+        "298d43db-1b3c-4517-8804-9a0891f8dedd",
+        "b9d89a59-fba8-4df0-8c4e-1de95ee6ab5f",
+        "844365fd-e1ff-419c-b249-042dec605fae"
       ],
       "settings": {
         "sticky_header": true,
@@ -116,13 +85,13 @@
         "enable_live_search_images": true,
         "quick_links": "",
         "menu": "main-menu",
-        "secondary_menu": "secondary-menu",
+        "secondary_menu": "",
         "small_promo_heading": "",
         "small_promo_text": "",
         "small_promo_text_mobile": "",
         "small_promo_link": "",
         "small_promo_icon": "none",
-        "cart_icon": "icon-cart"
+        "cart_icon": "icon-bag"
       }
     }
   },
