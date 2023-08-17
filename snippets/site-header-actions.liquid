@@ -1,8 +1,8 @@
 <ul class="site-header-actions" data-header-actions>
   <li class="site-header__language-selector">
     <select id="language-selector">
-    <option value="en">EN</option>
-    <option value="fr">FR</option>
+      <option value="fr">FR</option>
+      <option value="en">EN</option>
     <!-- Add more language options as needed -->
   </select>
   
@@ -64,29 +64,25 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     var languageSelector = document.getElementById('language-selector');
-    var storedLanguage = localStorage.getItem('selectedLanguage');
     
-    // Set the stored language as the default value if available
-    if (storedLanguage) {
-      languageSelector.value = storedLanguage;
-    }
+    // Get the current URL path
+    var currentPath = window.location.pathname;
+    
+    // Determine the default language based on the URL
+    var defaultLanguage = currentPath.startsWith('/en') ? 'en' : 'fr';
+    
+    // Set the default language to the selector
+    languageSelector.value = defaultLanguage;
     
     languageSelector.addEventListener('change', function() {
       var selectedLanguage = languageSelector.value;
-      var currentPath = window.location.pathname;
-      
-      // Remove any existing language code from the path
-      var pathSegments = currentPath.split('/');
-      var newPathSegments = pathSegments.filter(function(segment) {
-        return segment !== storedLanguage;
-      });
       
       // Construct the new URL based on the selected language
       var newUrl;
       if (selectedLanguage === 'en') {
-        newUrl = newPathSegments.join('/');
+        newUrl = currentPath.replace('/' + defaultLanguage, '');
       } else {
-        newUrl = '/' + selectedLanguage + newPathSegments.join('/');
+        newUrl = '/' + currentPath.replace('/' + defaultLanguage, '');
       }
       
       // Store the selected language in local storage
@@ -96,6 +92,7 @@
     });
   });
 </script>
+
 
 
 

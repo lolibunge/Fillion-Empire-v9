@@ -9,7 +9,7 @@
   }
 </script>
 
-<section class="promo-grid--container">
+<section class="promo-grid--container rebl-promo-grid--container">
   {% if section.settings.title != blank %}
     <h2 class="home-section--title">
       {{ section.settings.title | escape }}
@@ -26,7 +26,7 @@
       <div class="promo-grid--inner promo-grid__columns--{{ section.settings.section_columns }}">
         {% for block in section.blocks %}
           {%
-            render 'promo-block',
+            render 'rebl-promo-block',
             block: block,
             text_alignment: section.settings.text_alignment,
             index: forloop.index,
@@ -36,7 +36,7 @@
     {% endif %}
   </div>
   {%
-    render 'promo-block-background',
+    render 'rebl-promo-block-background',
     blocks: section.blocks
   %}
 </section>
@@ -44,7 +44,7 @@
 {% schema %}
 {
   "name": "Grid Tiles",
-  "class": "tiles-grid--section",
+  "class": "rebl-tiles-grid--section",
   "max_blocks": 20,
   "settings": [
     {

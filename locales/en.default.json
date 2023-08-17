@@ -268,6 +268,7 @@
   "footer": {
     "general": {
       "copyright_html": "Copyright &copy; {{ year }} {{ shop_name }}.",
+      "newsletter": "Newsletter",
       "follow_us": "Follow us"
     }
   },
