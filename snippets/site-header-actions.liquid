@@ -69,7 +69,7 @@
     var currentPath = window.location.pathname;
     
     // Determine the default language based on the URL
-    var defaultLanguage = currentPath.startsWith('/en') ? 'en' : 'fr';
+    var defaultLanguage = currentPath.includes('/en') ? 'en' : 'fr';
     
     // Set the default language to the selector
     languageSelector.value = defaultLanguage;
@@ -80,9 +80,9 @@
       // Construct the new URL based on the selected language
       var newUrl;
       if (selectedLanguage === 'en') {
-        newUrl = currentPath.replace('/' + defaultLanguage, '');
+        newUrl = currentPath.includes('/') ? currentPath.replace('/', '/en') : '/en' + currentPath;
       } else {
-        newUrl = '/' + currentPath.replace('/' + defaultLanguage, '');
+        newUrl = currentPath.includes('/en') ? currentPath.replace('/en', '/') : currentPath;
       }
       
       // Store the selected language in local storage
@@ -92,6 +92,7 @@
     });
   });
 </script>
+
 
 
 
