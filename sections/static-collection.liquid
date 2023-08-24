@@ -138,9 +138,18 @@
         </figure>
       {% endif %}
 
-      <h1 class="collection--title">
-        {{ collection.title }}
-      </h1>
+      <div class="collection--information">
+        <h1 class="collection--title">
+          {{ collection.title }}
+        </h1>
+        <a class="guide-achat" href="/blogs/guides-dachats/comment-choisir-son-amplificateur-cinema-maison">
+        <div>
+        Consulter notre 
+        <b>guide d'achat</b>
+        </div>
+        {% include 'icon-interrogation' %}
+        </a>
+      </div>
 
       {% if collection.description != blank %}
         <div class="collection--description rte" data-collection-description>

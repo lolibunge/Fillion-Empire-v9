@@ -64,37 +64,32 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     var languageSelector = document.getElementById('language-selector');
-    
-    // Get the current URL path
-    var currentPath = window.location.pathname;
-    
-    // Determine the default language based on the URL
-    var defaultLanguage = currentPath.includes('/en') ? 'en' : 'fr';
-    
+    var currentUrl = window.location.href;
+    var isDefaultLanguage = !currentUrl.includes('/en/');
+    var defaultLanguage = isDefaultLanguage ? 'fr' : 'en';
+
     // Set the default language to the selector
     languageSelector.value = defaultLanguage;
-    
+
     languageSelector.addEventListener('change', function() {
       var selectedLanguage = languageSelector.value;
-      
-      // Construct the new URL based on the selected language
-      var newUrl;
+
       if (selectedLanguage === 'en') {
-        newUrl = currentPath.includes('/') ? currentPath.replace('/', '/en') : '/en' + currentPath;
+        if (isDefaultLanguage) {
+          // If the default language, add "/en" prefix
+          currentUrl = currentUrl.replace(/^(https?:\/\/[^/]+)/, '$1/en');
+        } else {
+          // If already in English, just switch the selector
+          languageSelector.value = 'fr';
+        }
       } else {
-        newUrl = currentPath.includes('/en') ? currentPath.replace('/en', '/') : currentPath;
+        // Remove "/en" prefix if it's present
+        currentUrl = currentUrl.replace('/en', '');
       }
-      
-      // Store the selected language in local storage
-      localStorage.setItem('selectedLanguage', selectedLanguage);
-      
-      window.location.href = newUrl;
+
+      // Redirect to the new URL
+      window.location.href = currentUrl;
     });
   });
 </script>
-
-
-
-
-
 
