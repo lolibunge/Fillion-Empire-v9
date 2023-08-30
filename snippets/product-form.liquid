@@ -183,7 +183,8 @@
         @param swatches_custom_colors
         @param swatch_file_type
       {% endcomment %}
-      
+     
+            
       <options-selection
         {% if variant_selection_id != blank %}variant-selection="{{ variant_selection_id }}"{% endif %}
         style="display: none;"
@@ -222,6 +223,8 @@
               option_index: option_index
             %}
           {% elsif style == 'radio' or show_swatches == true %}
+          {% if option.name == 'Condition' %}
+          {% else %}
             {%
               render 'options-radios',
               product: product,
@@ -237,8 +240,10 @@
               swatches_shape: swatches_shape,
             %}
           {% endif %}
+          {% endif %}
         {% endfor %}
       </options-selection>
+      
       {% comment %}Inject @pixelunion/shopify-variants-ui/options-selection end{% endcomment %}
   
     {% endif %}
@@ -492,7 +497,6 @@
     </details>
   {%- endif -%}
   {% comment %}Inject @pixelunion/pxs-gift-card-recipient-form/recipient-form end{% endcomment %}
-
 
   <div class="product-form--atc">
     <div class="product-form__action-wrapper">

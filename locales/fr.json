@@ -98,6 +98,14 @@
       "tags_html": "Marqué \"{{ tags }}\""
     }
   },
+  "product_bundles": {
+    "build_bundle": {
+      "bundle_build_header": "Créez votre ensemble",
+      "quickview": "Voir un aperçu",
+      "bundle_this": "Ajouter ce produit",
+      "bundled": "Ajouté!"
+    }
+  },  
   "product_price": {
     "price": {
       "original": "Prix d'origine",
@@ -113,7 +121,13 @@
       "sale_money_single_html": "Économisez <span class=\"money\" data-price-money-saved>{{ savings }}<\/span>",
       "sold_out": "Épuisé",
       "sale": "Soldes",
-      "pre_order": "Pré-commander"
+      "pre_order": "Pré-commander",
+      "economize": "Économisez",
+      "en-inventaire": "En Inventaire"
+    },
+    "availability": {
+      "availability-shipping": "Profitez de la livraison gratuite pour ce produit",
+      "livraison-gratuite": "Livraison Gratuite"
     }
   },
   "general": {

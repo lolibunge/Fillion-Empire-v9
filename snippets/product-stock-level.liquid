@@ -89,25 +89,26 @@
 {% endcapture %}
 
 <div class="product-stock-level-wrapper" {{ attr }}>
+  {% if product.metafields.fillion.conditioncode_ != blank %}
+  <span class="product-title-option2">
+    {{ product.metafields.fillion.conditioncode_ }}
+  </span>
+  {% endif %}
+  
   {% if variant.inventory_management %}
     <span class="{{ stock_badge_classes }}">
+      
+      <span class="product-stock-level__text">
+        {%
+          render 'icon-library',
+          id: 'icon-checkmark-circle',
+        %}
+      </span>
       {% if verbose %}
         <span class="product-stock-level__availability">
-          {{ 'product.status.availability' | t }}:
+          {{ 'product_price.badge.en-inventaire' | t }}
         </span>
       {% endif %}
-
-      <span class="product-stock-level__text">
-        {% if verbose and stock_level == 'high' %}
-          {%
-            render 'icon-library',
-            id: 'icon-checkmark-circle',
-          %}
-        {% endif %}
-        <div class="product-stock-level__badge-text">
-          {{ stock_badge_text }}
-        </div>
-      </span>
     </span>
   {% endif %}
 </div>

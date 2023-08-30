@@ -1,0 +1,9 @@
+{% if product.metafields.global.Qte_Demo_Montreal != blank %}
+<div class="demos-container">
+    <i>Démo</i>
+    <div class="text">
+        <p>En démonstration</p>
+        <span>{{ product.metafields.global.Qte_Demo_Montreal.value | split: 'Demos_'}}</span>
+    </div>
+</div>
+{% endif %}

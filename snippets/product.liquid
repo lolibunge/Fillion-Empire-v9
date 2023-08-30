@@ -162,14 +162,23 @@
                 {% endif %}
               {% endif %}
 
-            {% when 'vendor' %}
+              {% when 'type' %}
+              {% if product.type != blank %}
+                <div class="product-type">
+                    {%- capture vendor_link -%}
+                      {{ product.type | link_to_vendor }}
+                    {%- endcapture -%}
+                    {{ vendor_link }}
+                </div>
+              {% endif %}
+              {% when 'vendor' %}
               {% if product.vendor != blank or onboarding %}
                 <div class="product-vendor">
                   {% unless onboarding %}
                     {%- capture vendor_link -%}
                       {{ product.vendor | link_to_vendor }}
                     {%- endcapture -%}
-                    {{ 'product.general.by_vendor_html' | t: vendor_link: vendor_link }}
+                    {{ vendor_link }}
                   {% else %}
                     {{ 'onboarding.product.by_vendor' | t }}
                   {% endunless %}
@@ -221,7 +230,10 @@
                   </p>
                 </div>
               {% endif %}
-
+              {% when 'balise43' %}
+              {% if product.metafields.global.balise43 != blank %}
+              <div class="balise43">{{ product.metafields.global.balise43.value }}</div>
+              {% endif %}
             {% when 'key_details' %}
               {% unless block.settings.title == blank and block.settings.text == blank %}
                 <div
@@ -301,9 +313,16 @@
                   include_hidden_price: true
                 %}
 
+                
+
                 <form data-payment-terms-target style="display: none;"></form>
               </div>
-
+              {% when 'ecofrais' %}
+            {% if product.metafields.fillion.ecofrais != blank %}
+              <div class="ecofrais">{{ product.metafields.fillion.ecofrais }}</div>
+              {% endif %}
+            {% when 'preset-bundle' %}
+              {% render 'preset-bundle' %}
             {% when 'sku' %}
               {% unless onboarding %}
                 <div
@@ -344,7 +363,8 @@
                       assign enable_local_pickup = block.settings.enable_local_pickup
                     endif
                   %}
-
+                  
+                  {% render 'availability-shipping' %}
                   {% unless onboarding %}
                     {%
                       render 'product-form',
@@ -358,7 +378,7 @@
                   {% endunless %}
                 </div>
               </div>
-
+              
             {% when 'text' %}
               <div class="product-text">
                 {{ block.settings.text }}

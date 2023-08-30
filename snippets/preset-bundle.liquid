@@ -1,0 +1,235 @@
+{% assign preset_bundle = product.metafields.bundles.preset_bundle.value %}
+{% assign pb_precentage_savings = product.metafields.bundles.pb_precentage_savings.value %}
+
+{% for product in preset_bundle %}
+{% assign bundle-id = forloop.index %}
+{% assign pb_precentage_savings-id = forloop.index0 %}
+{% assign savings = pb_precentage_savings[pb_precentage_savings-id] %}
+
+{% assign savings = product.price | divided_by: 100 | times: savings %}
+{% assign save = product.price | minus: savings %}
+
+<preset-bundle>
+<label id="bundle-{{ bundle-id }}" for="{{ product.id   }}" class="preset-bundle__main-product">
+    <div class="preset-bundle__info-wrapper">
+        <input data-id="{{ bundle-id }}" id="preset-bundle__product-{{ forloop.index }}" type="checkbox" role="checkbox" autocomplete="off"
+            class="preset-bundle__{{ product.title }}">
+        <div class="preset-bundle__product-image">
+            <img src="{{ product.featured_image | img_url: 'master'  }}" alt="{{ product.image.alt }}" />
+
+        </div>
+
+        <div class="preset-bundle__title-options">
+            <h4> <a href="#" class="view-more-btn" data-handle="{{ product.handle }}"
+                    data-collection="{{ product.type }}">{{ product.title }}</a></h4>
+            <div class="preset-bundle__options">
+                <div class="swatches">
+                    {% for option in product.options %}
+                    {% case option %}
+                    {% when "Grandeur" %}
+                    {% for variant in product.variants %}
+                    {% if variant.available %}
+
+                    <label no-options>
+                        <input {% if forloop.index==1 %}checked{% endif %} data-id="{{ bundle-id }}"
+                            preset-bundle-variant type="radio" name="preset-bundle-{{ bundle-id }}__variant"
+                            value="{{ variant.id }}" id="{{ product.handle }}-{{ variant.id }}">
+
+                    </label>
+
+                    {% else %}
+
+                    <label>
+                        <input {% if forloop.index==1 %}checked{% endif %} data-id="{{ bundle-id }}"
+                            preset-bundle-variant type="radio" name="preset-bundle-{{ bundle-id }}__variant"
+                            value="{{ variant.id }}" id="{{ product.handle }}-{{ variant.id }}" disabled>
+                        <span>{{ variant.option1 }} - Sold Out</span>
+                    </label>
+                    {% endif %}
+                    {% endfor %}
+                    {% when "Couleur" %}
+                    {% for variant in product.variants %}
+                    {% if variant.available %}
+
+                    <label preset-bundle-variant data-id="{{ bundle-id }}" is-couleur>
+                        <input class="preset-bundle__input" {% if forloop.index==1 %}checked{% endif %}
+                            data-id="{{ bundle-id }}" preset-bundle-variant type="radio"
+                            name="preset-bundle-{{ bundle-id }}__variant" value="{{ variant.id }}"
+                            id="{{ product.handle }}-{{ variant.id }}">
+
+
+                        <img data-option-title="{{ value | handleize | downcase }}"
+                            style="background-color: {{ variant.option1 }};"
+                            src="{{ variant.option1 | handleize | append: '.png' | asset_url }}" width="16" height="16"
+                            class="option_circles" />
+
+
+                    </label>
+
+                    {% else %}
+
+                    <label preset-bundle-variant data-id="{{ bundle-id }}" is-couleur>
+                        <input class="preset-bundle__input" {% if forloop.index==1 %}checked{% endif %}
+                            data-id="{{ bundle-id }}" preset-bundle-variant type="radio"
+                            name="preset-bundle-{{ bundle-id }}__variant" value="{{ variant.id }}"
+                            id="{{ product.handle }}-{{ variant.id }}" disabled>
+
+
+                        <img data-option-title="{{ value | handleize | downcase }}"
+                            style="background-color: {{ variant.option1 }};"
+                            src="{{ variant.option1 | handleize | append: '.png' | asset_url }}" width="16" height="16"
+                            class="option_circles" />
+
+                    </label>
+                    {% endif %}
+                    {% endfor %}
+                    {% endcase %}
+                    {% endfor %}
+
+                </div>
+                <!-- view more -->
+
+
+            </div>
+        </div>
+
+    </div>
+    {% assign priceOff = product.price %}
+
+    <div class="preset-bundle__price">
+        {% if savings == 0 %}
+        <div class="product-title price--main no-savings" data-price="">
+            <span class="money">+ {{ product.price | money }}</span>
+        </div>
+        {% else %}
+        <div class="product-price">
+            <span class="product--badge badge--sale" data-badge-sales="">
+                <p style="display:none;"></p>
+                {{ 'product_price.badge.economize' | t }}
+                <span class="money" data-price-money-saved="">{{ product.price | minus: save | money }}</span>
+            </span>
+            <div class="price--compare-at__container">
+                <div class="price--compare-at visible" data-price-compare-at="">
+                    <span class="money">{{ product.price | money}}</span>
+                </div>
+                <div class="product-title price--main hasCompare has-condtion" data-price="">
+                    <span class="money">{{ product.price | minus: savings | money }}</span>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</label>
+</preset-bundle>
+{% endfor %}
+
+<style>
+    /* Product Page  */
+    /* Bundle Presets */
+    label.preset-bundle__main-product {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #fff;
+        padding: 10px;
+    }
+
+    .preset-bundle__info-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .price--compare-at__container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .preset-bundle__product-image {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* .preset_bundle-section button.view-more-btn {
+      display: none;
+  }
+  
+  .preset_bundle-section .preset-bundle__main-product:hover button.view-more-btn {
+      display: block;
+  } */
+    .preset-bundle__title-options {
+        padding: 5px;
+    }
+
+    .preset-bundle__title-options h4 {
+        font-weight: bold;
+    }
+
+    .preset-bundle__price .money {
+        font-size: 15px !important;
+    }
+
+    .preset-bundle__info-wrapper img {
+        width: 100px;
+    }
+
+    .preset-bundle__price .product-title.price--main.hasCompare {
+        margin: 0;
+        padding: 0;
+    }
+
+    .preset_bundle-section {
+        background: #f4f4f4;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    label.preset-bundle__main-product .color-swatches {
+        display: flex;
+        column-gap: 10px;
+        justify-content: flex-start;
+    }
+
+    label.preset-bundle__main-product .option_circles {
+        height: 25px;
+        width: 25px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        border: 1px solid #ccc;
+    }
+
+    .swatches input[type=radio]:checked+img {
+        border: 2px solid #fff;
+        box-shadow: 0 0 0 1px #000;
+    }
+
+    label[is-couleur] input {
+        display: none;
+    }
+
+    label[no-options] input {
+        display: none;
+    }
+
+    label[is-couleur] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .swatches {
+        display: flex;
+        column-gap: 10px;
+    }
+
+    @media screen and (max-width:768px) {
+        label.preset-bundle__main-product {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+</style>

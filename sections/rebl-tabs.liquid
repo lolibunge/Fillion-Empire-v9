@@ -1,0 +1,388 @@
+<div class="tabbingVariant">
+    <div id="specif-bar" class="sb_tabs">
+        <div class="tabs">
+            <!-- DESCRIPTION TAB -->
+        {% if product.metafields.fillion.marketing != blank or product.metafields.fillion.features != blank %}
+            <button class="tablinks active" onclick="openTabs(event, 'Desc')">Description</button>
+        {% endif %}
+            
+        <!-- SPECS TAB -->
+        
+        {% if product.metafields.fillion.ext_spec != blank %}
+            <button class="tablinks" onclick="openTabs(event, 'Spec')">Spécifications</button>
+        {% endif %}
+            
+        <!-- MANUFACTURE TAB -->
+        {% if product.metafields.fillion.flixmedia != blank or product.metafields.fillion.flixmediawp != blank %}
+            <button class="tablinks" onclick="openTabs(event, 'Flix')">Infos du Fabricant</button>
+        {% endif %}
+
+            <!-- AVIS TAB -->
+            {% if product %}
+            
+            <button class="tablinks" onclick="openTabs(event, 'Avis')">
+                Avis
+                <div id="testfreaks-badge"></div>
+            </button>
+            {% endif %}
+
+            <!-- COMPARATIVE TAB -->
+        {% if relatedPP.size > 0 %}
+            <button class="tablinks" onclick="scrollToTop('Comp')">
+                    Comparatif 
+            </button>
+        {% endif %}
+
+            <!-- ACCESORIES TAB -->
+        {% if product.metafields.fillion.child != blank %}
+            <button class="tablinks" onclick="scrollToTop('Acce')">Accessoires</button>
+        {% endif %}
+        </div>
+
+        <!-- DESCRIPTION TAB CONTENT -->
+        {% if product.metafields.fillion.marketing != blank or product.metafields.fillion.features != blank %}
+            <div id="Desc" class="tabcontent active">
+                <p class="title">Description</p>
+                <div class="specficContent">
+                    <div class="accordion desc">
+                        <div class="content open">
+                            
+                                    {% if product.metafields.fillion.marketing != blank %}
+                                    {{ product.metafields.fillion.marketing }}
+                                    {% endif %}
+                                    
+                                    {% if product.metafields.fillion.features != blank %}
+                                    {{ product.metafields.fillion.features }}
+                                    {% endif %}
+
+                                    {% if product.metafields.fillion.inthebox != blank %}
+                                    {{ product.metafields.fillion.inthebox }}
+                                    {% endif %}
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        {% endif %}
+        
+        <!-- AVIS TAB CONTENT -->
+        <div id="Avis" class="tabcontent">
+            <p class="title">Avis</p>
+            <div class="specficContent">
+                <div class="container">
+                    <div>{{ product.metafields.spr.reviews.value }}</div>
+                    <div class="customReview">
+                        <div id="testfreaks-reviews"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="customReview">
+                        <div id="testfreaks-qa"></div>
+                    </div>
+                </div>
+                {% comment %}
+                Testfreaks script.
+                {% endcomment %}
+                <script>
+                    testFreaks = window.testFreaks || [];
+                    testFreaks.push(["setProductId", "{{product.variants.first.sku}}"]);
+                    testFreaks.push(["setPlaceholderIds", { badge: ["testfreaks-badge", "testfreaks-badge-2", "testfreaks-badge-3"] }]);
+
+                    testFreaks.push(["setAggregateRatingSchema", "json-ld", {{ canonical_url | append: '#json-ld-for-seo' | json }}]);
+
+                    testFreaks.push(["load", ["badge", "reviews", "qa", "seller"]]);
+
+                </script>
+            </div>
+
+        </div>
+        
+
+        <!-- SPEC TAB CONTENT -->
+        {% if product.metafields.fillion.ext_spec != blank %}
+        <div id="Spec" class="tabcontent specif">
+            <p class="title">Spécifications</p>
+            <div class="specficContent">
+                    {% assign metafield = product.metafields.fillion.ext_spec | json_str %}
+                    <div id="data-container"></div>
+                    <script>
+
+                        const jsonData = {{ metafield }};
+                        // Assuming your JSON data is stored in a variable called "jsonData"
+                        let sval_dict = {};
+                        for (let obj of jsonData) {
+                            let sval = obj.SVAL;
+                            if (!sval_dict[sval]) {
+                                sval_dict[sval] = {
+                                    HVAL: [],
+                                    BVAL: [],
+                                };
+                            }
+                            sval_dict[sval].HVAL.push(obj.HVAL);
+                            sval_dict[sval].BVAL.push(obj.BVAL);
+                        }
+
+                        let container = document.getElementById('data-container');
+                        for (let sval in sval_dict) {
+                            let sval_div = document.createElement('div');
+                            let sval_title_container = document.createElement('div');
+                            let sval_title = document.createElement('span'); 
+                            sval_title_container.className = 'section_title';
+                            sval_title.textContent = sval;
+                            sval_div.className = 'section_accordion';
+                            sval_div.appendChild(sval_title_container);
+                            sval_title_container.appendChild(sval_title);
+
+                            let sval_container = document.createElement('div');
+                            let sval_table = document.createElement('div');
+                            sval_table.className = 'section_details_table';
+                            sval_container.className = 'section_details';
+                            sval_container.appendChild(sval_table);
+
+                            for (let i = 0; i < sval_dict[sval].HVAL.length; i++) {
+                                let sval_hval = document.createElement('div');
+                                sval_hval.className = 'section_left_column';
+                                let sval_bval = document.createElement('div');
+                                sval_bval.className = 'section_right_column';
+                                sval_hval.textContent = sval_dict[sval].HVAL[i];
+                                sval_bval.textContent = sval_dict[sval].BVAL[i];
+                                sval_table.appendChild(sval_hval);
+                                sval_table.appendChild(sval_bval);
+                            }
+                            sval_div.appendChild(sval_container);
+                            container.appendChild(sval_div);
+                        }
+                    </script>
+                </div>
+            </div>
+
+        {% endif %}
+
+        <!-- MANUFFACTURE TAB CONTENT -->
+        {% if product.metafields.fillion.flixmediawp != blank or product.metafields.fillion.flixmedia != blank or product.metafields.fillion.webcollage != blank or product.metafields.fillion.cnet != blank and product.metafields.fillion.flixmedia == '' %}
+        <!-- PRODUCT METAFIELDS -->
+        <div id="Flix" class="tabcontent flixmedia">
+            <p class="title">Du Fabricant</p>
+            <div class="specficContent">
+                <div class="accordion desc">
+                    <div class="content">
+                  
+                  {% if product.metafields.fillion.flixmediawp != blank %}
+                  {{ product.metafields.fillion.flixmediawp }}
+                  	{% assign variant_ID = product.id %}
+                  	<section class="metakey-flixmediawp">
+                      	<iframe id="wp-flixmedia-{{variant_ID}}"  scrolling="no" frameborder="0" onload="" width="100%" src="{% include 'ly-metafield' with variant, namespace: 'fillion', key: 'flixmediawp' %}{{ly_translation}}" frameborder="0" width= 100%; scrolling="no"></iframe>
+                      	<script> 
+                          
+                          function call_height_window() {
+
+                            // On essaie d'être compatible avec le max de navigateurs
+                            var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+                            var eventer = window[eventMethod];
+                            var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+ 
+                            // On écoute les messages envoyés par la frame/fenêtre fille
+                            eventer(messageEvent,function(e) {
+                              	var variant_ID = {{variant_ID}};
+                              	var $variant_prod = $('#wp-flixmedia-'+variant_ID);
+                              	var value_height = e.data;
+								var value_attr = $variant_prod.attr('height');
+								if ( value_attr == "" || value_attr == undefined || value_attr == '0px' ) {
+                                  if ($.isNumeric(value_height)) {
+                                    var height_px = value_height + 'px'
+                              		$variant_prod.attr('height',height_px);
+                                  }
+                            	} 
+                            },false);
+                          }
+                          
+                          //var el_clicked = document.getElementsByClassName("swatch clearfix");
+						  //el_clicked.onclick = call_height_window();
+                          
+                          call_height_window();
+                          
+                        </script>
+                    </section>
+                  {% else %}
+                    {% if product.metafields.fillion.flixmedia != blank %}
+                      <section class="metakey-flixmedia">
+	                        {{ product.metafields.fillion.flixmedia }}
+                      </section>
+                    {% endif %}
+                    {% if product.metafields.fillion.webcollage != blank %}
+                      <section class="metakey-webcollage">
+                       {{ product.metafields.fillion.webcollage }}
+                      </section>
+                    {% endif %}
+                     {% if product.metafields.fillion.cnet != blank %}
+                      <section class="metakey-cnet">
+                       {{product.metafields.fillion.cnet }}
+                      </section>
+                    {% endif %}
+                  {% endif %}
+                </div>
+                </div>  
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- COMPARATIVE TAB CONTENT -->
+        {% if relatedPP.size > 0 %}
+        <div id="Comp" class="section">
+            <p class="title">Comparatif</p>
+            <div id="compare" class="specficContent">
+                <div class="container">
+                  <section class="product-section--container product-row--container related-products--container main-blog" data-related-products>
+                    <div class="main-collection">
+                      <div class="product-section--content product-row--scroller product-row--count-{{ product_count }}">
+                        <div class="product-row--outer display-flex">
+                          <div class="current col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                 {% assign current_product =  product %}
+                                {% include 'product-grid-item', product: current_product, is_current_product: true %}
+                          </div>
+                          {% assign counter = 1 %}
+                          <div class="col-xl-9 col-lg-9 col-md-8 col-sm-6 custom_related_fields">
+                              {% for relatedP in relatedPP limit:4 %}
+                                  {% assign comboHandle =  relatedP | split : '|' | first | handle %}
+                                  {% assign comboQty =  relatedP | split : '|' | last | handle %}
+                                  {% assign proc = all_products[comboHandle] %}
+                                  {% assign proc_variant = proc.selected_or_first_available_variant %}
+                                  {% assign proc_image = proc_variant.image | default: product.featured_image %}
+                                  {% assign proc_compare_at_price = proc_variant.compare_at_price %}
+                                  {% assign proc_price = proc_variant.price %}
+                                  {% include 'product-grid-item', product: proc %}
+                              {% endfor %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+        </div>
+        {% endif %}
+
+        <!-- ACCESESORIES TAB CONTENT -->
+        {% if product.metafields.fillion.child != blank %}
+        <div id="Acce" class="section">
+
+            <p class="title">Accessoires</p>
+            <div id="access" class="specficContent">
+                <style>
+                    .product-recommendations ul {
+                        display: flex;
+                    }
+                </style>
+                <div class="custom_related_fields">
+                    {% assign accesories = product.metafields.fillion.child.value %}
+                    
+                    <ul
+                    class="product-section--content product-row"
+                    data-product-row
+                    >
+                    {% for product in accesories %}
+                      {%
+                        render 'product-grid-item',
+                        product: product
+                      %}
+                    {% endfor %}
+                  </ul>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+
+    </div>
+
+</div>
+
+<script>
+    function openTabs(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+        
+        var container = document.getElementById("specif-bar");
+        var offsetHeight = 200; // Replace with the desired height offset in pixels
+        container.scrollIntoView({ block: "start", inline: "nearest" });
+        window.scrollBy(0, -offsetHeight);
+    }
+
+    function scrollToTop(containerId) {
+        var container = document.getElementById(containerId);
+        var offsetHeight = 280; // Replace with the desired height offset in pixels
+        container.scrollIntoView({ block: "start", inline: "nearest" });
+        window.scrollBy(0, -offsetHeight);
+    }
+
+</script>
+
+<script>
+    window.addEventListener('scroll', function() {
+     var specifBar = document.getElementById('specif-bar');
+     var tabContainer = document.querySelector('.tabs');
+     var specifBarTop = specifBar.offsetTop;
+     var specifBarHeight = specifBar.offsetHeight;
+     var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+     var offset = 145; // Adjust this value as needed
+   
+     if (scrollPosition >= (specifBarTop - offset) && scrollPosition <= (specifBarTop + specifBarHeight)) {
+       tabContainer.classList.add('sticky-tab');
+     } else {
+       tabContainer.classList.remove('sticky-tab');
+     }
+   });
+   
+   
+   </script>
+   
+   
+   <script>
+   
+       const accordionTitles = document.querySelectorAll(".section_title");
+       //const displayAllButton = document.querySelector("#display-all");
+       //const displayAllIcon = displayAllButton.querySelector(".icon");
+   
+       //displayAllButton.addEventListener("click", () => {
+        //    accordionTitles.forEach((accordionTitle) => {
+        //        accordionTitle.classList.toggle("is-open");
+        //    });
+           //displayAllIcon.classList.toggle("fa-plus");
+           //displayAllIcon.classList.toggle("fa-minus");
+       //});
+   
+       accordionTitles.forEach((accordionTitle) => {
+           accordionTitle.addEventListener("click", () => {
+               accordionTitles.forEach((otherAccordionTitle) => {
+                   if (otherAccordionTitle !== accordionTitle) {
+                       otherAccordionTitle.classList.remove("is-open");
+                   }
+               });
+               accordionTitle.classList.toggle("is-open");
+           });
+       });
+   </script>
+
+{% schema %}
+{
+  "name": "Product Tabs",
+  "class": "section-product-tabs",
+  "settings": [],
+  "presets": [
+    {
+      "category": "Product Tabs",
+      "name": "Product Tabs"
+    }
+  ]
+}
+{% endschema %}

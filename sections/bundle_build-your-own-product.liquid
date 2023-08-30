@@ -1,0 +1,17 @@
+{% if product.metafields.fillion.child %}
+{% render 'bundle_build-your-own-product' %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Build Your Own Bundle",
+  "class": "section-bundle_build-your-own-product",
+  "settings": [],
+  "presets": [
+    {
+      "category": "Build Your Own Bundle",
+      "name": "Build Your Own Bundle"
+    }
+  ]
+}
+{% endschema %}

@@ -75,8 +75,13 @@
               style="--swatch-color: {{ value | escape | remove: ' ' }}"
             {% endif %}
           >
+          {% assign current_variant = product.selected_or_first_available_variant %}
             {% unless show_swatches %}
+            
               {{ value }}
+              <br/>
+             {% if option.name == 'Grandeur' %} {{ current_variant.price | money }} {% endif %}
+             
             {% else %}
               {% assign use_variant_images = false %}
               {% if swatches_option_style == 'variant_image' %}

@@ -98,6 +98,14 @@
       "tags_html": "Tagged \"{{ tags }}\""
     }
   },
+  "product_bundles": {
+    "build_bundle": {
+      "bundle_build_header": "Bundle your products",
+      "quickview": "Quickview",
+      "bundle_this": "Bundle this",
+      "bundled": "Bundled!"
+    }
+  },
   "product_price": {
     "price": {
       "original": "Original price",
@@ -113,7 +121,13 @@
       "sale_money_single_html": "Save <span class=\"money\" data-price-money-saved>{{ savings }}<\/span>",
       "sold_out": "Sold out",
       "sale": "Sale",
-      "pre_order": "Pre-order"
+      "pre_order": "Pre-order",
+      "economize": "Save",
+      "en-inventaire": "In Stock"
+    },
+    "availability": {
+      "availability-shipping": "Take advantage of free shipping on this product",
+      "livraison-gratuite": "Free delivery"
     }
   },
   "general": {

@@ -1,0 +1,60 @@
+{% assign total_cart = cart.total_price | divided_by: 100 %}
+{% assign is_option = true %}
+<!-- Si on est dans le panier -->
+{% if template.name contains 'cart' %}
+
+	{% assign variant = item.variant %}
+	{% if variant.inventory_quantity > 0 or variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
+		{% if total_cart > 99.99 %}
+          <div class="available_stock_date_outer">
+            <div class="available_stock_date">
+                  <i>{% render 'icon-truck' %}</i>
+                  <span>{{ 'product_price.availability.livraison-gratuite' | t }}</span>
+             </div>
+          </div>
+		{% endif %}
+    {% endif %}
+
+<!-- Sinon on est dans la page produit -->
+{% else %}
+{% for variant in product.variants limit: 1 %}
+	{% if variant.inventory_quantity > 0 or variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
+      <div class="available_stock_date_outer">
+        
+        <!-- Si c'est une demo, on ne crawl pas à travers toute les variantes -->
+        {% if is_option %}
+        	{% assign price_clean = variant.price | divided_by: 1000  %}
+            {% if price_clean > 99.99 %}
+              {% if variant.inventory_quantity > 0 or variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
+                  <div class="available_stock_date" data-id="{{ product.id }}" data-cv="{{ variant.id }}">
+                      <i>{% render 'icon-truck' %}</i>
+                      <span>{{ 'product_price.availability.availability-shipping' | t }}</span>
+                  </div>
+               {% endif %}
+        	{% endif %}
+        <!-- Sinon on est dans le swatch principal -->
+        {% else %}
+          {% for variant in all_variants %}
+				{% if variant.inventory_quantity > 0 or variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
+                  {% assign condition = variant.option2 %}
+                  {% assign is_demo = false %}        		
+                  {% if condition contains "DÉMONSTRATEUR" or condition contains "FIN DE LIGNE" or condition contains "BOÎTE OUVERTE" %}
+                      {% assign is_demo = true %} 
+                  {% endif %}
+        
+        		  {% assign price_clean = variant.price | divided_by: 1000  %}
+		          {% if price_clean > 99.99 %}
+                    <div class="available_stock_date tabbingVariant" data-id="{{ product.id }}" data-cv="{{ variant.id }}" {% if product.selected_or_first_available_variant.id != variant.id or is_demo %}style="display:none;"{% endif %}>
+                        <p>
+                          <i>{% render 'icon-truck' %}</i>
+                            <span>{{ 'product_price.availability.availability-shipping' | t }}</span>
+                        </p>
+                     </div>
+        		  {% endif %}
+              	{% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+  {% endif %}
+{% endfor %}
+{% endif %}

@@ -1,0 +1,228 @@
+{{ 'fillion-bundles.js' | asset_url | script_tag}}
+
+
+<script type="text/javascript">
+  const variantData = new Map();
+  {% for variant in product.variants %}
+  variantData.set('{{variant.id}}', { price: {{ variant.price }}});
+  {% endfor %}
+</script>
+
+{% assign bundle_build = product.metafields.bundles.bundle_build_your_own.value %}
+{% assign discount_percentage = product.metafields.bundles.discount_percentage.value %}
+{% assign accesories = product.metafields.fillion.child.value %}
+
+<!-- Trying to show the percentage save -->
+{% for percentage in discount_percentage limit:1 %}
+{% capture percentage %}{{ percentage }}{% endcapture %}
+{% assign discount_percentage = percentage %}
+{% endfor %}
+
+{% assign first_variant = product.variants.first %}
+
+<div class="bundle-build__wrapper">
+  <div class="bundle-build__container">
+
+    <div class="bundle-build__main-product">
+      <h2 class="bundle-build__header">{{ 'product_bundles.build_bundle.bundle_build_header' | t }}</h2>
+      <img src="{{ product.featured_image | img_url:'master'  }}" alt="{{ product.iamge.alt }}" />
+      <h3> {{ product.vendor }}</h3>
+      <h2> {{ product.title }}</h2>
+    </div>
+
+    <div class="bundle-build__plus-sign">
+      <span class="plus-sign"></span>
+    </div>
+
+    <div class="bundle-build__slider bundle-carousel">
+
+      <!-- forloop -->
+      {% for product in accesories %}
+
+      {% assign variant = product.variants.first %}
+      {% for variant in product.variants %}
+      {% assign total_variants = product.variants | size %}
+      {% endfor %}
+
+      <bundle-product bundle-id="{{ product.id }}" class="bundle-build__slide">
+        <div class="bundle-build__slide-product-info">
+          <div class="bundle-build__info">
+            <h4> {{ product.type }}</h4>
+            <img src="{{ product.featured_image | img_url:'master'  }}"
+              alt="{{ product.iamge.alt }}" />
+            <h3> {{ product.vendor }}</h3>
+            <h2> {{ product.title }}</h2>
+          </div>
+          <div class="bundle-build__price">
+            <span id="bundle-price">
+              {% if discount_percentage %} 
+              {{ 'product_price.badge.economize' | t }}               
+                {{ discount_percentage }}%
+              {% endif %}
+              
+            </span>
+          </div>
+        </div>
+        <form action="/cart/add" method="post" enctype="multipart/form-data">
+          <!-- Hide option if product has only one option -->
+          
+          <span class="money">
+            {% if total_variants == 1 %}
+              {{ product.price | money }}
+              {% endif %}
+          </span>
+          {% if total_variants == 1 %}
+          {% for variant in product.variants %}
+          <input type="hidden" name="id" data-bundle-id="{{ product.id }}" value="{{ variant.id }}" data-price="{{ variant.price }}" />
+          {% endfor %}
+          {% else %}
+          <select data-bundle-id="{{ product.id }}" name="id">
+            {% for variant in product.variants %}
+            
+            <script>
+              variantData.set('{{variant.id}}', { price: {{ variant.price }}});
+            </script>
+
+            {% if variant.available == true %}
+            <option value="{{ variant.id }}" data-price="{{ variant.price }}">{{ variant.title }} for {{ variant.price |
+              money }}</option>
+            {% else %}
+            <option disabled="disabled">{{ variant.title }} - sold out!</option>
+            {% endif %}
+            {% endfor %}
+          </select>
+          {% endif %}
+
+          <a data-bundle-id="{{ product.id }}"
+            class="bundle-build__select used-atc product-form--atc-button {% unless selected_variant.available %}disabled{% endunless %}" 
+            type="submit" data-variant-id="{{variant_id}}">
+            <span class="atc-button--text"></span>
+            <span class="atc-button--icon">
+              {%- include 'icon-spinner' -%}
+            </span>
+          </a>
+        </form>
+
+        <!-- view more -->
+        <button is-bundle bundle-action=selectBundle data-bundle-id="{{ product.id }}" class="view-more-btn"
+          data-handle="{{ product.handle }}" data-collection="{{ product.type }}">
+          {{ 'product_bundles.build_bundle.quickview' | t }} 
+        </button>
+      </bundle-product>
+
+      {% endfor %}
+      <!-- -->
+    </div>
+
+
+  </div>
+
+  <!-- <button style="" type="button" class="addBundlesButton shadow-btn" value="Ajouter au comparateur"><span>
+    {% if cart.attributes.language == 'ly64715' %}
+      Add bundles to cart
+      {% else %}
+      Ajouter cet ensemble au panier
+      {% endif %}
+    </span></button> -->
+
+ <!-- Other content here -->
+ <button id="addToCart">Add to Cart</button>
+</div>
+
+<style>
+  
+.bundle-build__slide img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+ .bundle-build__container {
+    display: flex;
+}
+
+.bundle-build__main-product {
+    width: 30%;
+}
+
+.bundle-build__slider {
+    width: 65%;
+}
+
+.bundle-build__main-product img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.bundle-build__plus-sign {
+  font-size: 150px;
+  width: 5%;
+  position: relative;
+  left:8px;
+  z-index: 9;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.bundle-build__plus-sign:after {
+  border-left: 2px solid;
+  height: 190px;
+  position: absolute;
+  bottom: 0;
+  content: "";
+  left: 50%;
+  z-index: 9;
+}
+
+.bundle-build__plus-sign:before {
+  border-left: 2px solid;
+  height: 190px;
+  position: absolute;
+  top: 0;
+  content: "";
+  left: 50%;
+  z-index: 9;
+}
+
+span.plus-sign:before {
+  height: 50px;
+  width: 50px;
+  content: "\002b";
+  color: #000;
+  position: relative;
+  top: -13px;
+}
+
+
+.bundle-build__slide:not(.selected) .atc-button--text:after {
+  content: '{{ 'product_bundles.build_bundle.bundle_this' | t }}' !important;
+}
+
+.bundle-build__slide.selected .atc-button--text:after {
+  content: '{{ 'product_bundles.build_bundle.bundled' | t }}' !important;
+}
+
+
+@media screen and (max-width:480px) {
+  
+}
+/* --------------------- */
+
+</style>
+
+<script>
+  var elem = document.querySelector('.bundle-carousel');
+  var flkty = new Flickity( elem, {
+    // options
+    cellAlign: 'left',
+    pageDots: false,
+    freeScroll: false,
+    draggable: false,
+    wrapAround: true
+  });
+
+</script>

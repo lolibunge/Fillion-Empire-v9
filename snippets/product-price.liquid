@@ -127,6 +127,11 @@
 
 <div class="price {{ class_root }}__price {% if compare_at_price_varies %}price--varies{% endif %}">
   {% if include_compare_price %}
+  <span class="{{ class_root }}--badge badge--sale" data-badge-sales>          
+    {{ 'product_price.badge.economize' | t }}
+    <span class="money" data-price-money-saved="">{{ product.compare_at_price | minus: product.price | money }}</span>
+</span>
+
     <div
       class="price__compare-at {% if emphasize_price or on_sale and show_original %}visible{% endif %}"
       data-price-compare-container
@@ -195,7 +200,7 @@
       </div>
     {% endif %}
   {% endif %}
-
+<div class="price__main">
   <div class="price__current {% if emphasize_price %}price__current--emphasize{% endif %} {% if on_sale %}price__current--on-sale{% endif %}" data-price-container>
     {%- capture price_html -%}
       <span class="money" data-price>
@@ -228,6 +233,13 @@
       {{ current_price_html }}
     {% endif %}
   </div>
+  {% if product.metafields.fillion.conditioncode_ != blank %}
+    <span class="product-title-option2 {% if emphasize_price %}price__current--emphasize{% endif %} {% if on_sale %}price__current--on-sale{% endif %}">
+      {{ product.metafields.fillion.conditioncode_ }}
+    </span>
+    {% endif %}
+</div>
+  
 
   {% if include_hidden_price %}
     {% comment %}
